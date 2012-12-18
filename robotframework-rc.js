@@ -1,11 +1,22 @@
 //Separator for splitting commands
-var SEPARATOR = "  ";
+var SEPARATOR = "\t";
 
 //Mapping for Selenium Commands -> Selenium Robot Keywords
 var KEYWORDS = {
+  open: "Go To",
+  click: "Click Element",
+  clickAndWait: "Click Element",
   type: "Input Text",
   select: "Select From List",
-  verifyValue: "Textfield Should Contain"
+  check: "Select Checkbox",
+  verifyValue: "Textfield Should Contain",
+  verifyTextPresent: "Page Should Contain",
+  verifyElementPresent: "Page Should Contain Element",
+  verifyTextNotPresent: "Page Should Not Contain",
+  verifyElementNotPresent: "Page Should Not Contain Element",
+  waitForCondition: "Wait For Condition",
+  waitForElementPresent: "Wait Until Page Contains Element",
+  waitForTextPresent: "Wait Until Page Contains",
 };
 
 //converts the test case respectively the single command into the target format
@@ -16,9 +27,9 @@ function formatCommands(commands) {
     if (command.type == 'command') {
       var keyword = KEYWORDS[command.command];
       if(keyword == null){
-      	keyword = "Call Selenium Api  " + command.command;
+       keyword = "Call Selenium Api " + command.command;
       }
-	  var target = command.target.replace(/id=/, '');		
+var target = command.target.replace(/id=/, '');	
       result += keyword + SEPARATOR + target + SEPARATOR + command.value + "\n";
       keyword = null;
     }
