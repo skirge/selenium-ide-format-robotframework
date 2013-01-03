@@ -7,13 +7,20 @@ var KEYWORDS = {
   click: "Click Element",
   clickAndWait: "Click Element",
   type: "Input Text",
+  typeAndWait: "Input Text",
   select: "Select From List",
+  selectAndWait: "Select From List",
   check: "Select Checkbox",
+  checkAndWait: "Select Checkbox",
   verifyValue: "Textfield Should Contain",
   verifyTextPresent: "Page Should Contain",
   verifyElementPresent: "Page Should Contain Element",
   verifyTextNotPresent: "Page Should Not Contain",
   verifyElementNotPresent: "Page Should Not Contain Element",
+  assertTextPresent: "Page Should Contain",
+  assertElementPresent: "Page Should Contain Element",
+  assertTextNotPresent: "Page Should Not Contain",
+  assertElementNotPresent: "Page Should Not Contain Element",
   waitForCondition: "Wait For Condition",
   waitForElementPresent: "Wait Until Page Contains Element",
   waitForTextPresent: "Wait Until Page Contains",
@@ -29,7 +36,7 @@ function formatCommands(commands) {
       if(keyword == null){
        keyword = "Call Selenium Api " + command.command;
       }
-var target = command.target.replace(/id=/, '');	
+      var target = command.target.replace(/^id=/, '');	
       result += keyword + SEPARATOR + target + SEPARATOR + command.value + "\n";
       keyword = null;
     }
