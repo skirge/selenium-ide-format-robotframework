@@ -6,12 +6,21 @@ var KEYWORDS = {
   open: "Go To",
   click: "Click Element",
   clickAndWait: "Click Element",
+  clickAt: "Click Element At Coordinates",
+  dragAndDropToObject: "Drag And Drop",
+  dragAndDrop: "Drag And Drop By Offset",
+  focus: "Focus",
+  sendKeys: "Input Text",
   type: "Input Text",
   typeAndWait: "Input Text",
   select: "Select From List",
   selectAndWait: "Select From List",
   check: "Select Checkbox",
   checkAndWait: "Select Checkbox",
+  mouseDown: "Mouse Down",
+  mouseOut: "Mouse Out",
+  mouseOver: "Mouse Over",
+  mouseUp: "Mouse Up",
   verifyValue: "Textfield Should Contain",
   verifyTextPresent: "Page Should Contain",
   verifyElementPresent: "Page Should Contain Element",
@@ -34,7 +43,7 @@ function formatCommands(commands) {
     if (command.type == 'command') {
       var keyword = KEYWORDS[command.command];
       if(keyword == null){
-       keyword = "Call Selenium Api " + command.command;
+       keyword = "Call Selenium Api" + SEPARATOR + command.command;
       }
       var target = command.target.replace(/^id=/, '');	
       result += keyword + SEPARATOR + target + SEPARATOR + command.value + "\n";
