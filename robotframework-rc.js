@@ -26,6 +26,7 @@ var KEYWORDS = {
   verifyElementPresent: "Page Should Contain Element",
   verifyTextNotPresent: "Page Should Not Contain",
   verifyElementNotPresent: "Page Should Not Contain Element",
+  assertText: "Element Text Should Be",
   assertTextPresent: "Page Should Contain",
   assertElementPresent: "Page Should Contain Element",
   assertTextNotPresent: "Page Should Not Contain",
